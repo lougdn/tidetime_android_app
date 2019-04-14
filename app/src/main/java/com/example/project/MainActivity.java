@@ -1,5 +1,6 @@
 package com.example.project;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 MyCredential mycred = new MyCredential(lgn, pwd);
                 //new Authenticate().execute(mycred);
+            case R.id.register:
+                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+                startActivity(intent);
         }
     }
 }
