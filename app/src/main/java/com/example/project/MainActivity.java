@@ -34,12 +34,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.authenticate:
-                TextView Login = (TextView) findViewById(R.id.login);
+                /*TextView Login = (TextView) findViewById(R.id.login);
                 String lgn = Login.getText().toString();
                 TextView Password = (TextView) findViewById(R.id.password);
                 String pwd = Password.getText().toString();
 
-                MyCredential mycred = new MyCredential(lgn, pwd);
+                MyCredential mycred = new MyCredential(lgn, pwd);*/
+                Intent tidePage = new Intent(getApplicationContext(), TideActivity.class);
+                startActivity(tidePage);
                 //new Authenticate().execute(mycred);
             case R.id.register:
                 Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
