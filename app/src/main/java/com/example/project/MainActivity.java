@@ -16,6 +16,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.Manifest;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -27,6 +30,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //we register a first user: admin
+        MyCredential admin = new MyCredential("admin", RegistrationActivity.getMd5("admin"));
+        if(!RegistrationActivity.Users.contains(admin)){
+            RegistrationActivity.Users.add(admin);
+        }
+
         super.onCreate(savedInstanceState);
 
         checkLocationPermission();
@@ -45,22 +54,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.authenticate:
+                TextView Login = (TextView) findViewById(R.id.login);
+                String lgn = Login.getText().toString();
+                TextView Password = (TextView) findViewById(R.id.password);
+                String pwd = Password.getText().toString();
+                String pwd_md5 = RegistrationActivity.getMd5(pwd);
+
+                ArrayList<MyCredential> Users = RegistrationActivity.Users;
+                for(int i = 0; i < RegistrationActivity.Users.size(); i++){
+                    if(lgn.equals(Users.get(i).getLogin())){
+                        if(pwd_md5.equals(Users.get(i).getPassword())){
+                            Toast toast2 = Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT);
+                            toast2.show();
+                            Intent intent1 = new Intent(getApplicationContext(), TideActivity.class);
+                            startActivity(intent1);
+                            break;
+                        }
+                        else {
+                            Toast toast3 = Toast.makeText(getApplicationContext(), "Wrong password", Toast.LENGTH_SHORT);
+                            toast3.show();
+                        }
+                    }
+                    else if(!lgn.equals(Users.get(i).getLogin()) &&  i == RegistrationActivity.Users.size() - 1) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Not registered", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                }
+                break;
+
             case R.id.register:
                 Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.authenticate:
-                /*TextView Login = (TextView) findViewById(R.id.login);
-                String lgn = Login.getText().toString();
-                TextView Password = (TextView) findViewById(R.id.password);
-                String pwd = Password.getText().toString();
-
-                MyCredential mycred = new MyCredential(lgn, pwd);*/
-                Intent tidePage = new Intent(getApplicationContext(), TideActivity.class);
-                startActivity(tidePage);
-                break;
-                //new Authenticate().execute(mycred);
-
         }
     }
 

@@ -67,7 +67,6 @@
             android:layout_marginRight="0dp"
             android:layout_marginBottom="0dp"
             android:background="@color/Blue"
-            android:enabled="false"
             android:text="Register" />
 
         <Button
