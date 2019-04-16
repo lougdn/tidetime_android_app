@@ -37,6 +37,10 @@ public class TideActivity extends AppCompatActivity{
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment fragment;
                     switch (item.getItemId()) {
+                        /*case R.id.menu_bestspot:
+                            fragment = new BestSpotEverFragment();
+                            loadFragment(fragment);
+                            return true;*/
                         case R.id.menu_allspots:
                             fragment = new AllSpotsFragment();
                             loadFragment(fragment);

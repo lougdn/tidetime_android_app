@@ -10,11 +10,16 @@
     <item
         android:id="@+id/menu_favorite"
         android:icon="@drawable/favorite"
-        android:title="Favorite spots "
+        android:title="Favorite spots"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_bestspot"
+        android:icon="@drawable/beach"
+        android:title="Best spot !"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_logout"
         android:icon="@drawable/logout"
-        android:title="Log out "
+        android:title="Log out"
         app:showAsAction="always" />
 </menu>
