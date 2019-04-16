@@ -69,7 +69,6 @@
             android:layout_marginRight="0dp"
             android:layout_marginBottom="0dp"
             android:background="@color/Blue"
-            android:onClick="onClick"
             android:text="Log in" />
 
         <Button

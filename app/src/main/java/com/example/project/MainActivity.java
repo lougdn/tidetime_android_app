@@ -3,6 +3,8 @@ package com.example.project;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,6 +35,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.register:
+                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+                startActivity(intent);
+                break;
             case R.id.authenticate:
                 /*TextView Login = (TextView) findViewById(R.id.login);
                 String lgn = Login.getText().toString();
@@ -42,10 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 MyCredential mycred = new MyCredential(lgn, pwd);*/
                 Intent tidePage = new Intent(getApplicationContext(), TideActivity.class);
                 startActivity(tidePage);
+                break;
                 //new Authenticate().execute(mycred);
-            case R.id.register:
-                Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
-                startActivity(intent);
+
         }
     }
 }

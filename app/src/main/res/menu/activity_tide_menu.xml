@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
 
-
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/activity_main_drawer_allspots"
-                    android:icon="@drawable/tide"
-                    android:title="All spots" />
-                <item
-                    android:id="@+id/activity_main_drawer_favorite"
-                    android:icon="@drawable/favorite"
-                    android:title="Favorite spots " />
-                <item
-                    android:id="@+id/activity_main_drawer_logout"
-                    android:icon="@drawable/logout"
-                    android:title="Log out " />
-            </group>
-        </menu>
-
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_allspots"
+        android:icon="@drawable/tide"
+        android:title="All spots"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_favorite"
+        android:icon="@drawable/favorite"
+        android:title="Favorite spots "
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/logout"
+        android:title="Log out "
+        app:showAsAction="always" />
 </menu>
